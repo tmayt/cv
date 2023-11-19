@@ -1,0 +1,18 @@
+h1{
+    color: brown;
+    text-align: center;
+    border-bottom: solid brown 3px;
+    padding-bottom: 15px;
+    margin: 0px 20vw;
+}
+.contact{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.contact > p{
+    margin: 0px 5px;
+}
+p{
+    font-size: 18pt;
+}

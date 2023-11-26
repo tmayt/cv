@@ -1,3 +1,5 @@
 from django.contrib import admin
+from main.models import Education,Qualification
 
-# Register your models here.
+admin.site.register(Education)
+admin.site.register(Qualification)

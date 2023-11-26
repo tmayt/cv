@@ -3,7 +3,6 @@ h1{
     text-align: center;
     border-bottom: solid brown 3px;
     padding-bottom: 15px;
-    margin: 0px 20vw;
 }
 .contact{
     display: flex;
@@ -15,4 +14,7 @@ h1{
 }
 p{
     font-size: 18pt;
+}
+.text-brown{
+    color: brown;
 }

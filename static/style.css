@@ -18,3 +18,8 @@ p{
 .text-brown{
     color: brown;
 }
+.profile-image{
+    width: 300px;
+    margin: auto;
+    display: block;
+}

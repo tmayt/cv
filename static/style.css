@@ -4,11 +4,6 @@ h1{
     border-bottom: solid brown 3px;
     padding-bottom: 15px;
 }
-.contact{
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
 .contact > p{
     margin: 0px 5px;
 }

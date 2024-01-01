@@ -17,10 +17,18 @@
             <img class="profile-image" src="{{profile.image.url}}" >
             <h1>{{profile.full_name}}</h1>
             <div class="contact">
-                <p>Phone: {{profile.phone}}</p>|
-                <p>Email: {{profile.email}}</p>|
-                <p>Linkedin: {{profile.linkedin}}</p>|
-                <p>City: {{profile.city}}</p>
+                <div class="row text-center">
+                    <div class="col-lg-4 col-12">
+                        <p>Phone: <a href="tel:{{profile.phone}}">{{profile.phone}}</a></p>
+                        <p>Email: <a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <p>City: {{profile.city}}</p>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <p><a href="{{profile.linkedin}}">Linkedin</a></p>
+                    </div>
+                </div>
             </div>
             <br>
             <h2 class="text-brown">HIGHLIGHTS OF QUALIFICATIONS</h2>
@@ -36,6 +44,25 @@
                 <p>{{education.address}}</p>
                 <hr>
             {% endfor %}
+            <h2>Send your message</h2>
+            <form method="post">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="name-input" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name-input" required>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="msg" class="form-label">Message</label>
+                        <textarea id="msg" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </body>
 

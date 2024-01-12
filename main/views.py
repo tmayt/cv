@@ -1,18 +1,30 @@
 from django.shortcuts import render
-from main.models import Education,Qualification,Profile,Message
+from main.models import Education,Qualification,Profile,Message,AcademicProjectCategory
 
 def home(request):
+    log = None
     if request.method == "POST":
-        # ezafe kardane data haye form be Message
-        pass
-    else:
-        e = Education.objects.all()
-        q = Qualification.objects.all()
-        p = Profile.objects.first()
-        context = {
-            'educations': e,
-            'qualifications': q,
-            'profile': p
-        }
-        return render(request,'home.html',context)
+        name = request.POST['name']
+        email = request.POST['email']
+        text = request.POST['text']
+        Message.objects.create(
+            name=name,
+            email=email,
+            text=text
+        )
+        log = "We received your message"
+
+    e = Education.objects.all()
+    q = Qualification.objects.all()
+    p = Profile.objects.first()
+    a = AcademicProjectCategory.objects.all()
+
+    context = {
+        'educations': e,
+        'qualifications': q,
+        'profile': p,
+        'AcademicProjectCategories': a,
+        'log':log
+    }
+    return render(request,'home.html',context)
 

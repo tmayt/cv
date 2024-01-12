@@ -44,26 +44,45 @@
                 <p>{{education.address}}</p>
                 <hr>
             {% endfor %}
+            <h2 class = 'text-brown'> ACADEMIC SOFTWARE PROJECTS</h2>
+
+            {% for category in AcademicProjectCategories %}
+            <h4 class = 'text-black'> {{category.name}} </h4>
+            <ul>
+                {% for AcademicProject in category.projects.all %}
+                <p>{{AcademicProject.date_start|date:"M Y"}} - {{AcademicProject.date_end|date:"M Y"}}</p>
+                <li> {{AcademicProject.text}}</li>
+                {% endfor %} 
+            </ul>
+            {% endfor %}
+
+            
             <h2>Send your message</h2>
             <form method="post">
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label for="name-input" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name-input" required>
+                        <input name="name" type="text" class="form-control" id="name-input" required>
                     </div>
                     <div class="col-6 mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="col-12 mb-3">
                         <label for="msg" class="form-label">Message</label>
-                        <textarea id="msg" class="form-control" required></textarea>
+                        <textarea name="text" id="msg" class="form-control" required></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+
+        {% if log %}
+        <script>
+            alert('{{log}}')
+        </script>
+        {% endif %}
     </body>
 
 </html>

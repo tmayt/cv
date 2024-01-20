@@ -59,6 +59,7 @@
             
             <h2>Send your message</h2>
             <form method="post">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label for="name-input" class="form-label">Name</label>
@@ -78,9 +79,16 @@
             </form>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         {% if log %}
         <script>
-            alert('{{log}}')
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "{{log}}",
+                showConfirmButton: false,
+                timer: 3000
+            });
         </script>
         {% endif %}
     </body>

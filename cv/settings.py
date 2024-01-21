@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'blog',
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"

@@ -18,3 +18,12 @@ p{
     margin: auto;
     display: block;
 }
+.blog-card{
+    background-color: gray;
+    border: solid 2px black;
+    border-radius: 18px;
+    transition: 0.5s;
+}
+.blog-card:hover{
+    box-shadow: 1px 2px 20px black;    
+}

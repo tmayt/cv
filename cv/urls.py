@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path,include
 from main.views import home
-from blog.views import blogs_view
+from blog.views import blogs_view,single_blog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('blogs/',blogs_view)
+    path('blogs/',blogs_view),
+    path('blog/<int:pk>/',single_blog, name="single_blog"),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

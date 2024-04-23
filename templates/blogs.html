@@ -2,29 +2,35 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+    
     <head>
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Blogs</title>
+        <title>My Bolgs</title>
         <link rel="stylesheet" href="{% static 'style.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
         <script src="{% static 'bootstrap.min.js' %}"></script>
     </head>
-
     <body>
         <div class="container">
-            <h1>My Blogs</h1>
-            <div class="row">
-                <div class="col-3 blog-card">
-                    <p>In publishing and graphic design</p>
+        <h1>My Bolgs</h1>
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-3">
+                <a href="{% url "single_blog" blog.pk %}">
+                <div class="blog-card p-2">
+                    <img src="{{blog.image.url}}" class="w-100 rounded mt-2">
+                    <h3>{{ blog.title }} </p>
+                    <p class= "text-info">{{ blog.date_update }} </p>
                 </div>
-                <div class="col-3 blog-card"></div>
-                <div class="col-3 blog-card"></div>
-                <div class="col-3 blog-card"></div>
-            </div>
+                </a>
+           </div>
+           {% endfor %}
+            
         </div>
 
+        
+      
     </body>
-
 </html>

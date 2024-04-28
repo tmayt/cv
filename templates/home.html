@@ -1,18 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}{{profile.full_name}} | CV{% endblock title %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{profile.full_name}} | CV</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
-        <script src="{% static 'bootstrap.min.js' %}"></script>
-    </head>
-
-    <body>
+{% block body %}
         <div class="container">
             <img class="profile-image" src="{{profile.image.url}}" >
             <h1>{{profile.full_name}}</h1>
@@ -91,6 +82,5 @@
             });
         </script>
         {% endif %}
-    </body>
-
-</html>
+        
+{% endblock body %}

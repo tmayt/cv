@@ -15,3 +15,12 @@ def single_blog(request,pk):
         'blog':b
     }
     return render(request,'blog.html',context)
+
+
+def search(request):
+    q = request.GET['q']
+    blogs = Blog.objects.filter(title__contains=q)
+    context = {
+        'blogs':blogs
+    }
+    return render(request,'search.html',context)

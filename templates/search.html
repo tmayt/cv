@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block title %}My blogs{% endblock title %}
+{% block title %}searching page{% endblock title %}
 
 {% block body %}
 
 <div class="container">
-    <h1>My Bolgs</h1>
+    <h1>{{request.GET.q}} ({{blogs.count}})</h1>
     <div class="row">
         {% for blog in blogs %}
         <div class="col-md-3 col-12">
-            <a href="{% url "single_blog" blog.pk %}">
+            <a href="{% url 'single_blog' blog.pk %}">
             <div class="blog-card p-2">
                 <img src="{{blog.image.url}}" class="w-100 rounded mt-2">
                 <h3>{{ blog.title }} </p>
@@ -19,7 +18,13 @@
             </a>
         </div>
         {% endfor %}
+        {% if blogs.count == 0 %}
+            <div class="col-12">
+                <p class="text-warning text-center">can't find any blog</p>
+            </div>
+        {% endif %}
     </div>
 </div>
+
 
 {% endblock body %}

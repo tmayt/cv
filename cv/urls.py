@@ -19,12 +19,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path,include
 from main.views import home
-from blog.views import blogs_view,single_blog
+from blog.views import blogs_view, single_blog, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
-    path('blogs/',blogs_view),
+
+    path('',home, name="home"),
+    path('blogs/',blogs_view, name="blogs"),
     path('blog/<int:pk>/',single_blog, name="single_blog"),
+    path('search/', search, name="search"),
+
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
